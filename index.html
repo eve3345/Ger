@@ -6,36 +6,20 @@
   <title>Feliz Dia dos Namorados</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="scissors">
-  <div class="envelop">
-    <div class="envelop__front-paper"></div>
-    <div class="envelop__back-paper"></div>
-    <div class="envelop__up-paper js-up-paper"></div>
-    <div class="envelop__sticker js-sticker"></div>
-    <div class="envelop__false-sticker"></div>
-    <div class="envelop__content js-envelop-content">
-      <div class="love-notes">
-        <div class="note js-note">
-          <div class="note__text">
-            <p>Feliz Dia dos Namorados, meu amor 💖</p>
-            <p>Evellyn, hoje é o nosso dia, mas a verdade é que todos os dias ao seu lado são especiais. Neste Dia dos Namorados, quero te lembrar do quanto sou grato por ter você comigo — sua presença ilumina meus dias, acalma meu coração e dá sentido a tudo ao meu redor.</p>
-          </div>
-        </div>
-        <div class="note js-note">
-          <div class="note__text">
-            <p>Você é mais do que minha namorada: é minha parceira, minha amiga, meu amor, meu porto seguro. Cada sorriso seu é um motivo pra continuar lutando, cada abraço seu é um refúgio, e cada momento ao seu lado é um presente que a vida me deu.</p>
-          </div>
-        </div>
-        <div class="note js-note">
-          <div class="note__text">
-            <p>Você é a melhor coisa que me aconteceu, obrigado por me escolher todos os dias.</p>
-            <p>Te amo muito! &hearts;</p>
-          </div>
-        </div>
+<body>
+  <div class="envelope" onclick="abrirCarta()">
+    <div class="topo"></div>
+    <div class="corpo">
+      <div class="mensagem">
+        <p><strong>Feliz Dia dos Namorados, meu amor 💖</strong></p>
+        <p>Evellyn, hoje é o nosso dia, mas a verdade é que todos os dias ao seu lado são especiais...</p>
+        <p>Você é a melhor coisa que me aconteceu. Obrigado por me escolher todos os dias. Te amo muito! &hearts;</p>
       </div>
     </div>
+    <div class="aba"></div>
+    <div class="selo"></div>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
   <script src="script.js"></script>
 </body>
 </html>
