@@ -1,35 +1,16 @@
-const upPaper = document.querySelector('.js-up-paper');
-const content = document.querySelector('.js-envelop-content');
-const sticker = document.querySelector('.js-sticker');
-const notes = document.querySelectorAll('.js-note');
+let aberta = false;
 
-let isOpen = false;
+function abrirCarta() {
+  const aba = document.querySelector('.aba');
+  const mensagem = document.querySelector('.mensagem');
 
-sticker.addEventListener('click', toggleEnvelope);
-upPaper.addEventListener('click', toggleEnvelope);
-
-function toggleEnvelope() {
-  if (!isOpen) {
-    gsap.to(upPaper, {
-      rotateX: -120,
-      duration: 1,
-      transformOrigin: "bottom"
-    });
-    gsap.to(content, {
-      height: "300px",
-      duration: 1
-    });
-    isOpen = true;
+  if (!aberta) {
+    aba.style.transform = 'rotateX(-120deg)';
+    mensagem.style.opacity = '1';
+    aberta = true;
   } else {
-    gsap.to(upPaper, {
-      rotateX: 0,
-      duration: 1,
-      transformOrigin: "bottom"
-    });
-    gsap.to(content, {
-      height: "0px",
-      duration: 1
-    });
-    isOpen = false;
+    aba.style.transform = 'rotateX(0deg)';
+    mensagem.style.opacity = '0';
+    aberta = false;
   }
 }
