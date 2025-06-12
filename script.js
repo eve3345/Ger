@@ -1,39 +1,35 @@
-let mobile_media_query = window.matchMedia("(max-width: 400px)");
-let tablet_media_query = window.matchMedia("(min-width: 400px) and (max-width: 600px)");
-const notes = document.querySelectorAll(".js-note");
+const upPaper = document.querySelector('.js-up-paper');
+const content = document.querySelector('.js-envelop-content');
+const sticker = document.querySelector('.js-sticker');
+const notes = document.querySelectorAll('.js-note');
 
-function resize_notes() {
-  notes.forEach(note => {
-    if (note.classList.contains("active")) {
-      note.classList.remove("active");
-      gsap.set(note, { height: "30%", clearProps: "all" });
-    }
-  });
-}
+let isOpen = false;
 
-function notes_ready() {
-  gsap.to(".js-envelop-content", {
-    height: "110%",
-    duration: 0.5
-  });
+sticker.addEventListener('click', toggleEnvelope);
+upPaper.addEventListener('click', toggleEnvelope);
 
-  notes.forEach((note, index) => {
-    note.addEventListener("click", function () {
-      if (mobile_media_query.matches || tablet_media_query.matches) {
-        if (this.classList.contains("active")) {
-          this.classList.remove("active");
-          gsap.set(this, { height: "30%", clearProps: "all" });
-        } else {
-          notes.forEach(n => {
-            n.classList.remove("active");
-            gsap.set(n, { height: "30%", clearProps: "all" });
-          });
-          this.classList.add("active");
-          gsap.set(this, { height: 125 + 40 * index + "%" });
-        }
-      }
+function toggleEnvelope() {
+  if (!isOpen) {
+    gsap.to(upPaper, {
+      rotateX: -120,
+      duration: 1,
+      transformOrigin: "bottom"
     });
-  });
+    gsap.to(content, {
+      height: "300px",
+      duration: 1
+    });
+    isOpen = true;
+  } else {
+    gsap.to(upPaper, {
+      rotateX: 0,
+      duration: 1,
+      transformOrigin: "bottom"
+    });
+    gsap.to(content, {
+      height: "0px",
+      duration: 1
+    });
+    isOpen = false;
+  }
 }
-
-document.addEventListener("DOMContentLoaded", notes_ready);
